@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
-import { TodoUpdate } from './TodoUpdate';
+import { TodoUpdate } from './TodoUpdate.jsx';
 
 export const TodoItem = ({
 	todo,
