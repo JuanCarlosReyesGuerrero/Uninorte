@@ -8,8 +8,7 @@ const dotenv = require('dotenv').config();
 
 describe('Pruebas sobre la API de users', () => {
 
-    beforeAll(async () => {
-        //await mongoose.connect('mongodb://127.0.0.1/dbpeliculas');
+    beforeAll(async () => {        
         await mongoose.connect(process.env.MONGODB_URI);
     });
 

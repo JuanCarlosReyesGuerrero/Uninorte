@@ -3,7 +3,7 @@ const User = require('../models/user.model');
 const dotenv = require('dotenv').config();
 
 (async () => {    
-    //await mongoose.connect('mongodb://localhost:27017/peliculas_db');
+        
     await mongoose.connect(process.env.MONGODB_URI); 
 
     const newUser = await User.create({
