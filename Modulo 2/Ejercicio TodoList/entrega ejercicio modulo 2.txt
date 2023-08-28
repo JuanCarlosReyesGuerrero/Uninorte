@@ -1,0 +1,6 @@
+Cordial saludo
+
+Me permio entregar el ejercicio del módulo 2
+
+
+https://github.com/JuanCarlosReyesGuerrero/Uninorte/tree/main/Modulo%202/Ejercicio%20TodoList/todo-list-app
