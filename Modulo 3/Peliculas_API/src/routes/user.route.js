@@ -4,6 +4,52 @@ const userSchema = require("../models/user.model");
 const router = express.Router();
 
 // create user
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    User:
+ *      type: object
+ *      properties:
+ *        name: 
+ *          type: string
+ *          description: the user name
+ *        age:
+ *          type: string
+ *          description: the user age
+ *        email:
+ *          type: string
+ *          description: the user email
+ *      required:
+ *        - name
+ *        - age
+ *        - email
+ *      example:
+ *        name: Alan key
+ *        age: 70
+ *        email: reygue28@gmail.com
+ *          
+ */
+
+/**
+ * @swagger
+ * /api/users:
+ *  post:
+ *    summay: create new user
+ *    tags: [User]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: Object
+ *            $ref: '#/components/schemas/User'
+ *    responses: 
+ *      200:
+ *        description: new user
+ * 
+ */
+
 router.post("/users", (req, res) => {
   const user = userSchema(req.body);
   user

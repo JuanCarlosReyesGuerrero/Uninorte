@@ -3,6 +3,26 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userRoute = require("./routes/user.route");
 const movieRoute = require("./routes/movie.route");
+const path = require("path")
+
+//Swagger
+const swaggerUI = require("swagger-ui-express");
+const swaggerJsDoc = require("swagger-jsdoc");
+swaggerSpec = {
+  definition: {
+    openapi: "3.0.0",
+    info: {
+      title: "Node  MongoDB Api",
+      version: "1.0.0"
+    },
+    servers: [
+      {
+        url: "http://localhost:9000"
+      },
+    ],
+  },
+  apis: [`${path.join(__dirname, "./routes/*.js")}`],
+};
 
 // settings
 const app = express();
@@ -12,6 +32,7 @@ const port = process.env.PORT || 9000;
 app.use(express.json());
 app.use("/api", userRoute);
 app.use("/api", movieRoute);
+app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
 
 // routes
 app.get("/", (req, res) => {
