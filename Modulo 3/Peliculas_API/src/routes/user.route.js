@@ -13,21 +13,32 @@ const router = express.Router();
  *      properties:
  *        name: 
  *          type: string
- *          description: the user name
- *        age:
- *          type: string
- *          description: the user age
+ *          description: El nombre del usuario
  *        email:
  *          type: string
- *          description: the user email
+ *          description: El email del usuario
+ *        nickname:
+ *          type: string
+ *          description: El nickname del usuario
+ *        date_birth:
+ *          type: date
+ *          description: La fecha de nacimiento del usuario
+ *        password:
+ *          type: string
+ *          description: La contraseña del usuario
  *      required:
  *        - name
- *        - age
  *        - email
+ *        - nickname
+ *        - date_birth
+ *        - password
  *      example:
- *        name: Alan key
- *        age: 70
- *        email: reygue28@gmail.com
+ *        name: Tom Sawyer        
+ *        email: tomsawyer@gmail.com
+ *        nickname: tomsawyer
+ *        date_birth: 1985-05-15
+ *        password: A56Ke125&%
+ *        
  *          
  */
 
