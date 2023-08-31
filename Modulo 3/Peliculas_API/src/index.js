@@ -12,7 +12,7 @@ swaggerSpec = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Node  MongoDB Api",
+      title: "Calificacion Peliculas Api",
       version: "1.0.0"
     },
     servers: [

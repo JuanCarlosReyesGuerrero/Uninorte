@@ -47,7 +47,7 @@ const router = express.Router();
  * /api/users:
  *  post:
  *    summay: create new user
- *    tags: [User]
+ *    tags: [Registro de Usuarios]
  *    requestBody:
  *      required: true
  *      content:
@@ -60,7 +60,6 @@ const router = express.Router();
  *        description: new user
  * 
  */
-
 router.post("/users", (req, res) => {
   const user = userSchema(req.body);
   user
