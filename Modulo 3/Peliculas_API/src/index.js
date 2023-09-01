@@ -3,11 +3,16 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const userRoute = require("./routes/user.route");
 const movieRoute = require("./routes/movie.route");
+const authaRoute= require('./routes/auth.route')
+const adminRoute = require("./routes/admin.route");
 const path = require("path")
+const validaToken = require('./routes/validate-tokens')
+const pruebaRoute = require("./routes/prueba");
 
 //Swagger
 const swaggerUI = require("swagger-ui-express");
 const swaggerJsDoc = require("swagger-jsdoc");
+const bodyParser = require("body-parser");
 swaggerSpec = {
   definition: {
     openapi: "3.0.0",
@@ -28,10 +33,18 @@ swaggerSpec = {
 const app = express();
 const port = process.env.PORT || 9000;
 
+//Capturar body
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 // middlewares
 app.use(express.json());
 app.use("/api", userRoute);
 app.use("/api", movieRoute);
+app.use("/api", authaRoute);
+app.use("/api", pruebaRoute);
+app.use("/api", adminRoute);
+app.use("/api", validaToken, adminRoute);
 app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
 
 // routes

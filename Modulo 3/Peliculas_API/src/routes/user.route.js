@@ -1,7 +1,18 @@
 const express = require("express");
 const userSchema = require("../models/user.model");
+const Joi = require('@hapi/joi');
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const router = express.Router();
+
+const schemaRegister = Joi.object({
+  name: Joi.string().min(6).max(255).required(),
+  email: Joi.string().min(6).max(255).required().email(),
+  nickname: Joi.string().min(6).max(12).required(),
+  date_birth: Joi.date().required(),
+  password: Joi.string().min(6).max(1024).required()
+})
 
 // create user
 /**
@@ -61,11 +72,27 @@ const router = express.Router();
  * 
  */
 router.post("/users", (req, res) => {
+
+  // Validaciones de usuario
+  //const validaciones = schemaRegister.validate(req.body)
+  //return res.json({
+  //  validadciones
+  //}) 
+
+  //https://www.youtube.com/watch?v=SDnyMwxuv6E&list=PLPl81lqbj-4IEnmCXEJeEXPepr8gWtsl6&index=23
+
+  //console.log(validaciones);
+
+  //const saltos = bcrypt.genSalt(10);
+  //req.body.password = bcrypt.hash(req.body.password, saltos)
+
   const user = userSchema(req.body);
+  
   user
     .save()
     .then((data) => res.json(data))
     .catch((error) => res.json({ message: error }));
+
 });
 
 // get all users
