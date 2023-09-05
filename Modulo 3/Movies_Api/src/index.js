@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 // iniciar server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`servidor andando en: ${PORT}`)
+    console.log(`servidor corriendo en: ${PORT}`)
 })
 
 console.log(verifyToken);

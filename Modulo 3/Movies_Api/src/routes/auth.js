@@ -23,6 +23,49 @@ const schemaLogin = Joi.object({
     password: Joi.string().min(6).max(1024).required()
 })
 
+
+// Autenticated user
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    UserLogin:
+ *      type: object
+ *      properties: 
+ *        email:
+ *          type: string
+ *          description: El email del usuario 
+ *        password:
+ *          type: string
+ *          description: La contraseña del usuario
+ *      required:
+ *        - email
+ *        - password
+ *      example:
+ *        email: tomsawyer@gmail.com
+ *        password: A56Ke125&%
+ *        
+ *          
+ */
+
+/**
+ * @swagger
+ * /api/users/login:
+ *  post:
+ *    summay: autenticated  user
+ *    tags: [Autenticación Usuarios]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: Object
+ *            $ref: '#/components/schemas/UserLogin'
+ *    responses: 
+ *      200:
+ *        description: auteticated user
+ * 
+ */
 router.post('/login', async (req, res) => {
     // validaciones
     const { error } = schemaLogin.validate(req.body);
@@ -96,7 +139,7 @@ router.post('/login', async (req, res) => {
 
 /**
  * @swagger
- * /api/users:
+ * /api/users/register:
  *  post:
  *    summay: create new user
  *    tags: [Registro de Usuarios]

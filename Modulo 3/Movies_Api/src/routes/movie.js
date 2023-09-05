@@ -14,7 +14,7 @@ const schemaRegister = Joi.object({
  * @swagger
  * components:
  *  schemas:
- *    Movie:
+ *    MovieRegister:
  *      type: object
  *      properties:
  *        name: 
@@ -39,7 +39,7 @@ const schemaRegister = Joi.object({
 
 /**
  * @swagger
- * /api/movies:
+ * /api/movies/register:
  *  post:
  *    summay: create new movie
  *    tags: [Crear Peliculas]
@@ -49,7 +49,7 @@ const schemaRegister = Joi.object({
  *        application/json:
  *          schema:
  *            type: Object
- *            $ref: '#/components/schemas/Movie'
+ *            $ref: '#/components/schemas/MovieRegister'
  *    responses: 
  *      200:
  *        description: new movie
@@ -84,6 +84,67 @@ router.post('/register', async (req, res) => {
         res.status(400).json({ error })
     }
 })
+
+
+// delete movie
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    MovieDelete:
+ *      type: object
+ *      properties:
+ *        id: 
+ *          type: string
+ *          description: El id de la película
+ *      required:
+ *        - id
+ *      example:
+ *        id: 64f254f200bf5088db8b0dad
+ *          
+ */
+
+/**
+ * @swagger
+ * /api/movies/delete:
+ *  delete:
+ *    summay: delete movie
+ *    tags: [Eliminar Peliculas]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            type: Object
+ *            $ref: '#/components/schemas/MovieDelete'
+ *    responses: 
+ *      200:
+ *        description: delete movie
+ * 
+ */
+router.delete('/', async (req, res) => {
+
+    const id = req.body.id;
+
+    try {
+        const movieDB = await Movie.findByIdAndDelete({ _id: req.body.id })
+
+        if (!movieDB) {
+            res.json({
+                estado: false,
+                mensaje: 'No se puede eliminar el registro'
+            })
+        } else {
+            res.json({
+                estado: true,
+                mensaje: 'Registro eliminado!'
+            })
+        }
+    } catch (error) {
+        res.status(400).json({ error })
+    }
+})
+
 
 router.get('/', (req, res) => {
     res.json({
