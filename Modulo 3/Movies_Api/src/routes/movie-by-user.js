@@ -1,11 +1,12 @@
 const router = require('express').Router();
 const MovieByUser = require('../models/MovieByUser');
-const jwt = require("jsonwebtoken");
 const Joi = require('@hapi/joi');
 
 const schemaRegister = Joi.object({
     id_user: Joi.string().required(),
     id_movie: Joi.string().required(),
+    name_user: Joi.string().required(),
+    name_movie: Joi.string().required(),
     qualification: Joi.number()
 })
 
@@ -23,16 +24,26 @@ const schemaRegister = Joi.object({
  *        id_pelicula: 
  *          type: string
  *          description: Id Pelicula
- *        qualification:
+ *      name_user: 
+ *          type: string
+ *          description: El nombre del usuarios
+ *      name_movie: 
+ *          type: string
+ *          description: El nombre de la pelicula
+ *      qualification:
  *          type: number
  *          description: Calificación de la Película
  *      required:
  *        - id_user
- *        - id_movie
+ *        - id_movie 
+ *        - name_user
+ *        - name_movie 
  *        - qualification
  *      example:
  *        id_user: 64f12a0ef3a5866d32cd8e37        
  *        id_movie: 64f12a18f3a5866d32cd8e39
+ *        name_user: usuario1
+ *        name_movie: Los Vengadores
  *        qualification: 4
  *          
  */
@@ -67,6 +78,8 @@ router.post('/register', async (req, res) => {
     const movieByUser = new MovieByUser({
         id_user: req.body.id_user,
         id_movie: req.body.id_movie,
+        name_user: req.body.name_user,
+        name_movie: req.body.name_movie,
         qualification: req.body.qualification
     });
     try {
@@ -119,10 +132,10 @@ router.post('/register', async (req, res) => {
  */
 router.get('/', async (req, res) => {
 
-    const id = req.body.id;    
+    const id = req.body.id;
 
     try {
-        const movieDB = await MovieByUser.findOne({ id_user: req.body.id }) 
+        const movieDB = await MovieByUser.find({ id_user: req.body.id })
 
         if (movieDB) {
             res.json({
@@ -139,9 +152,11 @@ router.get('/', async (req, res) => {
                 mensaje: 'No se encontraron películas'
             })
         }
+
     } catch (error) {
         res.status(400).json({ error })
     }
+
 })
 
 

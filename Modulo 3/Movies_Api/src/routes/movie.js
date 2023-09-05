@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const Movie = require('../models/Movie');
-const jwt = require("jsonwebtoken");
 const Joi = require('@hapi/joi');
 
 const schemaRegister = Joi.object({
