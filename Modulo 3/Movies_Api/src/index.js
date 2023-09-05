@@ -45,12 +45,14 @@ app.use(bodyParser.json());
 // import routes
 const authRoutes = require('./routes/auth');
 const movieRoutes = require('./routes/movie');
+const movieByUserRoutes = require('./routes/movie-by-user');
 const verifyToken = require('./routes/validate-token');
 app.use("/api-doc", swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
 
 // route middlewares
 app.use('/api/user', authRoutes);
 app.use('/api/movie', verifyToken, movieRoutes);
+app.use('/api/movie-by-user', verifyToken, movieByUserRoutes);
 
 app.get('/', (req, res) => {
     res.json({

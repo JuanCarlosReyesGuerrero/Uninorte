@@ -5,8 +5,7 @@ const Joi = require('@hapi/joi');
 
 const schemaRegister = Joi.object({
     name: Joi.string().min(2).max(255).required(),
-    create_date: Joi.date().required(),
-    qualification: Joi.number()
+    create_date: Joi.date().required()    
 })
 
 // create movie
@@ -22,18 +21,13 @@ const schemaRegister = Joi.object({
  *          description: El nombre de la pelicula
  *        create_date:
  *          type: date
- *          description: Fecha creación
- *        qualification:
- *          type: number
- *          description: Calificación de la Película
+ *          description: Fecha creación 
  *      required:
  *        - name
- *        - create_date
- *        - qualification
+ *        - create_date 
  *      example:
  *        name: Los Vengadores        
- *        create_date: 2020-08-20
- *        qualification: 4
+ *        create_date: 2020-08-20 
  *          
  */
 
