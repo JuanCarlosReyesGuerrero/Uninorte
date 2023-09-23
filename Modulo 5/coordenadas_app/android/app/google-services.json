@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1083600616443",
+    "project_id": "coordenadas-app",
+    "storage_bucket": "coordenadas-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083600616443:android:084ec30c690c56f879695e",
+        "android_client_info": {
+          "package_name": "com.example.coordenadas_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCQ36uYvHTS7L9pJLG5ASmNc0H3WfEnDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
