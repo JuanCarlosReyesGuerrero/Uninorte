@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Estado de Red y Notificaciones'),
@@ -129,8 +129,77 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [
+                Container(
+                  width: 100,
+                  height: 100,
+                  margin: const EdgeInsets.only(top: 50, bottom: 20),
+                  child: Image.network(
+                      "https://st3.depositphotos.com/29384342/50528/v/450/depositphotos_505289992-stock-illustration-empty-shopping-cart-flat-color.jpg"),
+                ),
+                const Text(
+                  "Juan Reyes",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.grey[100],
+                  child: const Text("Home"),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.grey[100],
+                  child: const Text("Productos"),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.grey[100],
+                  child: const Text("Ventas"),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.grey[100],
+                  child: const Text("Chat"),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.grey[100],
+                  child: const Text("PQRS"),
+                ),
+                Expanded(child: Container()),
+                Container(
+                  margin: const EdgeInsets.only(top: 2),
+                  padding: const EdgeInsets.all(20),
+                  width: double.infinity,
+                  color: Colors.black87,
+                  alignment: Alignment.center,
+                  child: const Text(
+                    "Sign out",
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          backgroundColor: Colors.green,
           title: Text(widget.title),
         ),
         body: Center(
