@@ -2,6 +2,7 @@ import 'package:coordenadas_app/screens/authentication.dart';
 import 'package:coordenadas_app/screens/chat.dart';
 import 'package:coordenadas_app/screens/products.dart';
 import 'package:coordenadas_app/screens/red-status.dart';
+import 'package:coordenadas_app/screens/sale.dart';
 import 'package:flutter/material.dart';
 import 'package:coordenadas_app/screens/home.dart';
 import 'package:coordenadas_app/screens/about.dart';
@@ -64,7 +65,7 @@ class NavDrawer extends StatelessWidget {
                   color: Colors.green,
                 ),
                 onTap: () => Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Product())),
+                    .push(MaterialPageRoute(builder: (context) => Sale())),
               ),
               ListTile(
                 title: Text('Estado Red'),
