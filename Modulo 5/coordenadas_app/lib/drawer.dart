@@ -1,3 +1,4 @@
+import 'package:coordenadas_app/screens/authentication.dart';
 import 'package:coordenadas_app/screens/chat.dart';
 import 'package:coordenadas_app/screens/products.dart';
 import 'package:coordenadas_app/screens/red-status.dart';
@@ -34,6 +35,16 @@ class NavDrawer extends StatelessWidget {
                 ),
                 onTap: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => HomeScreen(title: "Home"))),
+              ),
+              ListTile(
+                title: Text('Autenticación'),
+                textColor: Colors.green,
+                trailing: Icon(
+                  Icons.verified_user_sharp,
+                  color: Colors.green,
+                ),
+                onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => Authentication())),
               ),
               ListTile(
                 title: Text('Productos'),
