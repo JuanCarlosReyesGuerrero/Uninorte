@@ -1,3 +1,31 @@
+import 'package:coordenadas_app/screens/home.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Navigation Drawer Tutorial',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const HomeScreen(title: 'Home'),
+    );
+  }
+}
+
+
+
+
+/*
+
+
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -266,3 +294,5 @@ class _MyHomePageState extends State<MyHomePage> {
         payload: "Mensaje de Ejemplo!");
   }
 }
+
+*/

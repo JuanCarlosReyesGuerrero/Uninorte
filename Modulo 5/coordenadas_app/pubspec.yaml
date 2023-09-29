@@ -39,6 +39,13 @@ dependencies:
   flutter_local_notifications: ^15.1.1
   firebase_core: ^2.16.0
   firebase_auth: ^4.10.0
+  file_picker: ^5.5.0
+  flutter_chat_types: ^3.6.2
+  uuid: ^4.1.0
+  flutter_chat_ui: ^1.6.9
+  image_picker: ^1.0.4
+  open_filex: ^4.3.4
+  path_provider: ^2.1.1
 
 dev_dependencies:
   flutter_test:
